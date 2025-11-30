@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shoppy — E-Commerce UI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-btn">Skip to Main Content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">Shoppy</h1>
+
+      <div class="header-controls">
+        <label class="search">
+          <input id="searchInput" type="search" placeholder="Search products..." aria-label="Search products">
+        </label>
+
+        <select id="sortSelect" aria-label="Sort products">
+          <option value="default">Sort: Featured</option>
+          <option value="price-asc">Price: Low → High</option>
+          <option value="price-desc">Price: High → Low</option>
+          <option value="rating-desc">Rating: High → Low</option>
+          <option value="rating-asc">Rating: Low → High</option>
+        </select>
+
+        <button id="themeToggle" class="icon-btn" aria-pressed="false" title="Toggle theme">🌓</button>
+
+        <button id="cartButton" class="cart-btn" aria-haspopup="dialog" aria-expanded="false">
+          🛒 <span id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <h2>Discover the Latest Trends</h2>
+        <p>Shop the best products at unbeatable prices.</p>
+      </div>
+      <a href="#products" class="cta-btn">Shop Now</a>
+    </div>
+  </section>
+
+  <main id="main-content" class="container">
+
+    <aside class="sidebar" aria-label="Filters">
+      <h3>Filters</h3>
+
+      <div class="filter-group">
+        <label for="ratingFilter">Minimum Rating</label>
+        <select id="ratingFilter">
+          <option value="0">All Ratings</option>
+          <option value="4">4★ & above</option>
+          <option value="3">3★ & above</option>
+          <option value="2">2★ & above</option>
+          <option value="1">1★ & above</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="priceRange">Max Price: $<span id="priceValue">500</span></label>
+        <input id="priceRange" type="range" min="0" max="500" value="500" />
+      </div>
+
+      <div class="filter-group">
+        <label>Categories</label>
+        <ul class="category-list" id="categoryList">
+          <li><label><input type="checkbox" value="Electronics" checked> Electronics</label></li>
+          <li><label><input type="checkbox" value="Clothing" checked> Clothing</label></li>
+          <li><label><input type="checkbox" value="Accessories" checked> Accessories</label></li>
+          <li><label><input type="checkbox" value="Home" checked> Home</label></li>
+          <li><label><input type="checkbox" value="Gadgets" checked> Gadgets</label></li>
+        </ul>
+      </div>
+
+      <div class="filter-actions">
+        <button id="applyFilters" class="filter-btn">Apply Filters</button>
+        <button id="clearFilters" class="ghost-btn">Clear</button>
+      </div>
+    </aside>
+
+    <section class="product-grid" id="products" aria-live="polite">
+      <article class="product-card" data-id="1" data-price="120" data-rating="4" data-category="Gadgets">
+        <img src="images/smart_watch.png" alt="Smart Watch">
+        <div class="product-body">
+          <h4 class="product-title">Smart Watch</h4>
+          <p class="meta"><span class="rating" aria-hidden="true">★★★★☆</span><span class="sr">4 out of 5 stars</span></p>
+          <p class="price">$120</p>
+          <button class="add-cart" data-id="1">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="2" data-price="90" data-rating="5" data-category="Electronics">
+        <img src="images/wireless_headphones.png" alt="Wireless Headphones">
+        <div class="product-body">
+          <h4 class="product-title">Wireless Headphones</h4>
+          <p class="meta"><span class="rating">★★★★★</span><span class="sr">5 out of 5 stars</span></p>
+          <p class="price">$90</p>
+          <button class="add-cart" data-id="2">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="3" data-price="75" data-rating="4" data-category="Clothing">
+        <img src="images/mens_jacket.png" alt="Men's Jacket">
+        <div class="product-body">
+          <h4 class="product-title">Men's Jacket</h4>
+          <p class="meta"><span class="rating">★★★★☆</span><span class="sr">4 out of 5 stars</span></p>
+          <p class="price">$75</p>
+          <button class="add-cart" data-id="3">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="4" data-price="45" data-rating="3" data-category="Accessories">
+        <img src="images/sunglasses.png" alt="Sunglasses">
+        <div class="product-body">
+          <h4 class="product-title">Sunglasses</h4>
+          <p class="meta"><span class="rating">★★★☆☆</span><span class="sr">3 out of 5 stars</span></p>
+          <p class="price">$45</p>
+          <button class="add-cart" data-id="4">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="5" data-price="65" data-rating="4" data-category="Electronics">
+        <img src="images/bluetooth_speaker.png" alt="Bluetooth Speaker">
+        <div class="product-body">
+          <h4 class="product-title">Bluetooth Speaker</h4>
+          <p class="meta"><span class="rating">★★★★☆</span><span class="sr">4 out of 5 stars</span></p>
+          <p class="price">$65</p>
+          <button class="add-cart" data-id="5">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="6" data-price="55" data-rating="3" data-category="Clothing">
+        <img src="images/casual_sneakers.png" alt="Casual Sneakers">
+        <div class="product-body">
+          <h4 class="product-title">Casual Sneakers</h4>
+          <p class="meta"><span class="rating">★★★☆☆</span><span class="sr">3 out of 5 stars</span></p>
+          <p class="price">$55</p>
+          <button class="add-cart" data-id="6">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="7" data-price="40" data-rating="4" data-category="Accessories">
+        <img src="images/laptop_bag.png" alt="Laptop Bag">
+        <div class="product-body">
+          <h4 class="product-title">Laptop Bag</h4>
+          <p class="meta"><span class="rating">★★★★☆</span><span class="sr">4 out of 5 stars</span></p>
+          <p class="price">$40</p>
+          <button class="add-cart" data-id="7">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="8" data-price="20" data-rating="2" data-category="Gadgets">
+        <img src="images/wireless_mouse.png" alt="Wireless Mouse">
+        <div class="product-body">
+          <h4 class="product-title">Wireless Mouse</h4>
+          <p class="meta"><span class="rating">★★☆☆☆</span><span class="sr">2 out of 5 stars</span></p>
+          <p class="price">$20</p>
+          <button class="add-cart" data-id="8">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="9" data-price="30" data-rating="3" data-category="Home">
+        <img src="images/led_desk_lamp.png" alt="LED Desk Lamp">
+        <div class="product-body">
+          <h4 class="product-title">LED Desk Lamp</h4>
+          <p class="meta"><span class="rating">★★★☆☆</span><span class="sr">3 out of 5 stars</span></p>
+          <p class="price">$30</p>
+          <button class="add-cart" data-id="9">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="10" data-price="80" data-rating="5" data-category="Gadgets">
+        <img src="images/gaming_keyboard.png" alt="Gaming Keyboard">
+        <div class="product-body">
+          <h4 class="product-title">Gaming Keyboard</h4>
+          <p class="meta"><span class="rating">★★★★★</span><span class="sr">5 out of 5 stars</span></p>
+          <p class="price">$80</p>
+          <button class="add-cart" data-id="10">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="11" data-price="18" data-rating="2" data-category="Accessories">
+        <img src="images/phone_tripod.png" alt="Phone Tripod">
+        <div class="product-body">
+          <h4 class="product-title">Phone Tripod</h4>
+          <p class="meta"><span class="rating">★★☆☆☆</span><span class="sr">2 out of 5 stars</span></p>
+          <p class="price">$18</p>
+          <button class="add-cart" data-id="11">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="12" data-price="95" data-rating="4" data-category="Clothing">
+        <img src="images/womens_handbag.png" alt="Women's Handbag">
+        <div class="product-body">
+          <h4 class="product-title">Women's Handbag</h4>
+          <p class="meta"><span class="rating">★★★★☆</span><span class="sr">4 out of 5 stars</span></p>
+          <p class="price">$95</p>
+          <button class="add-cart" data-id="12">Add to Cart</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="contact-card">
+        <h2>Contact Us</h2>
+        <p class="contact-sub">Have questions? Send us a message and we'll get back to you within 24 hours.</p>
+        <form class="contact-form" id="contactForm">
+          <div class="row">
+            <label>
+              <span class="label-text">Your Name</span>
+              <input type="text" id="contactName" placeholder="Jane Doe" required>
+            </label>
+            <label>
+              <span class="label-text">Email</span>
+              <input type="email" id="contactEmail" placeholder="you@example.com" required>
+            </label>
+          </div>
+          <label>
+            <span class="label-text">Subject</span>
+            <input type="text" id="contactSubject" placeholder="Subject (optional)">
+          </label>
+          <label>
+            <span class="label-text">Message</span>
+            <textarea id="contactMessage" placeholder="Write your message..." required></textarea>
+          </label>
+
+          <div class="contact-actions">
+            <button type="submit" class="filter-btn">Send Message</button>
+            <button type="reset" class="ghost-btn">Reset</button>
+          </div>
+        </form>
+      </div>
+
+      <aside class="contact-info">
+        <div class="info-card">
+          <h4>Customer Support</h4>
+          <p>support@shoppy.example</p>
+        </div>
+        <div class="info-card">
+          <h4>Phone</h4>
+          <p>997185XXXX</p>
+        </div>
+        <div class="info-card">
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Shoppy. All rights reserved.</p>
+  </footer>
+
+  <div id="cartDrawer" class="cart-drawer" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="cart-inner">
+      <header class="cart-header">
+        <h3>Your Cart</h3>
+        <button id="closeCart" class="icon-btn" aria-label="Close cart">✕</button>
+      </header>
+      <ul id="cartItems" class="cart-items"></ul>
+
+      <div class="cart-footer">
+        <div class="cart-totals">
+          <div>Subtotal</div>
+          <div id="cartSubtotal">$0.00</div>
+        </div>
+        <div class="cart-actions">
+          <button id="clearCart" class="ghost-btn">Clear</button>
+          <button id="checkoutBtn" class="filter-btn">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cartBackdrop" class="backdrop" hidden></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
